@@ -1,0 +1,47 @@
+seed: 42
+device: auto
+
+env:
+  max_steps: 200
+  disturbance_step: 50
+  disturbance_magnitude: 0.35
+  action_low: -0.02
+  action_high: 0.02
+  reward:
+    kf: 20.0
+    kv: 10.0
+    ka: 0.5
+    ks: 0.2
+
+agent:
+  gamma: 0.99
+  tau: 0.005
+  actor_lr: 0.0003
+  critic_lr: 0.0003
+  alpha_lr: 0.0003
+  hidden_dims: [256, 256]
+  automatic_entropy_tuning: true
+  target_entropy: -3.5
+  initial_alpha: 0.2
+  grad_clip_norm: 10.0
+
+training:
+  total_episodes: 1000
+  replay_size: 100000
+  batch_size: 256
+  warmup_steps: 1000
+  start_updates: 1000
+  updates_per_step: 1
+  log_interval: 10
+  save_interval: 50
+  checkpoint_dir: checkpoints
+  result_dir: results
+  reward_csv: sac_dummy_rewards.csv
+  loss_csv: sac_dummy_losses.csv
+  reward_plot: sac_dummy_rewards.png
+
+evaluation:
+  model_path: checkpoints/sac_dummy_final.pt
+  result_dir: results
+  plot_file: sac_dummy_evaluation.png
+  csv_file: sac_dummy_evaluation.csv
