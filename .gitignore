@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+
+checkpoints/
+results/
+
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+*.log

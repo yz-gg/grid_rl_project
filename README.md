@@ -4,15 +4,6 @@
 
 当前阶段只包含 `DummyGridEnv + SAC`，不依赖 MATLAB、Simulink 或 Grid2Op。
 
-## 环境说明
-
-请你自行创建并激活虚拟环境。本项目不包含 conda 环境创建命令，也不会自动安装依赖。
-
-依赖列表在 `requirements.txt` 中。激活你自己的环境后，可以手动安装：
-
-```bash
-pip install -r requirements.txt
-```
 
 ## 项目结构
 

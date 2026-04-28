@@ -26,7 +26,7 @@ agent:
   grad_clip_norm: 10.0
 
 training:
-  total_episodes: 1000
+  total_episodes: 20
   replay_size: 100000
   batch_size: 256
   warmup_steps: 1000
