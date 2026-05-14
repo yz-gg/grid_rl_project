@@ -1,0 +1,45 @@
+seed: 42
+device: auto
+
+env:
+  max_steps: 200
+  disturbance_step: 50
+  disturbance_magnitude: 0.35
+  action_low: -0.02
+  action_high: 0.02
+  reward:
+    kf: 20.0
+    kv: 10.0
+    ka: 0.5
+    ks: 0.2
+
+agent:
+  gamma: 0.99
+  gae_lambda: 0.95
+  clip_range: 0.2
+  actor_lr: 0.0003
+  critic_lr: 0.0003
+  entropy_coef: 0.01
+  value_coef: 0.5
+  hidden_dims: [256, 256]
+  max_grad_norm: 0.5
+  initial_log_std: -0.5
+
+training:
+  total_updates: 20
+  rollout_steps: 1024
+  batch_size: 256
+  update_epochs: 10
+  log_interval: 5
+  save_interval: 50
+  checkpoint_dir: checkpoints
+  result_dir: results
+  reward_csv: ppo_dummy_rewards.csv
+  loss_csv: ppo_dummy_losses.csv
+  reward_plot: ppo_dummy_rewards.png
+
+evaluation:
+  model_path: checkpoints/ppo_dummy_final.pt
+  result_dir: results
+  plot_file: ppo_dummy_evaluation.png
+  csv_file: ppo_dummy_evaluation.csv

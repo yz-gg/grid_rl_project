@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-def plot_rewards(rewards: Sequence[float], output_path, window: int = 10) -> None:
+def plot_rewards(rewards: Sequence[float], output_path, window: int = 10, title: str = "SAC Training Reward") -> None:
     output_path = Path(output_path)
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
@@ -24,7 +24,7 @@ def plot_rewards(rewards: Sequence[float], output_path, window: int = 10) -> Non
         plt.plot(np.arange(window, len(rewards_array) + 1), moving_avg, label=f"{window}-episode mean")
     plt.xlabel("Episode")
     plt.ylabel("Reward")
-    plt.title("SAC Training Reward")
+    plt.title(title)
     plt.grid(True, alpha=0.3)
     plt.legend()
     plt.tight_layout()
@@ -32,7 +32,7 @@ def plot_rewards(rewards: Sequence[float], output_path, window: int = 10) -> Non
     plt.close()
 
 
-def plot_evaluation(history: Dict[str, Iterable[float]], output_path) -> None:
+def plot_evaluation(history: Dict[str, Iterable[float]], output_path, title: str = "SAC DummyGridEnv Evaluation") -> None:
     output_path = Path(output_path)
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
@@ -62,7 +62,7 @@ def plot_evaluation(history: Dict[str, Iterable[float]], output_path) -> None:
     axes[3].set_ylabel("reward")
     axes[3].grid(True, alpha=0.3)
 
-    fig.suptitle("SAC DummyGridEnv Evaluation")
+    fig.suptitle(title)
     fig.tight_layout()
     fig.savefig(output_path, dpi=150)
     plt.close(fig)
